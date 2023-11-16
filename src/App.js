@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Todo from './Components/Todo';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <div>Happy Diwali</div>
+        <Todo />
       </header>
     </div>
   );
