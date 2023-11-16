@@ -3,10 +3,15 @@ import AddTodoList from "./AddTodo";
 
 const Todo = () => {
     
-    const [todoList,setTodoList] = useState(["Soap","Shampoo"])
-    const handleTodoList = (value) =>{
-        setTodoList([value,...todoList])
+    const [todoList,setTodoList] = useState([{id:1,value:"Soap"},{id:2,value:"Shampoo"}])
+    const handleTodoList = (newValue) =>{
+        setTodoList([...todoList,{id:todoList.length+1,value:newValue}])
+    }
+
+    const deleteHandler = (e) =>{
+        console.log(e)
         
+       setTodoList( todoList.filter(item=> item.id !== e))
     }
     
     return (
@@ -16,7 +21,7 @@ const Todo = () => {
             <ul>
             {
                 
-                todoList.map(item => <li>{item}</li>)
+                todoList.map(item => <li onClick={() => deleteHandler(item.id)} key={item.id}>{item.value}</li>)
             }
             </ul>
         </>
